@@ -1,0 +1,21 @@
+<%= page do %>
+  <%= header do %>
+    <h1>Conference Tweets</h1>
+  <% end %>
+  <%= content 'data-theme' => 'd' do %>
+    <div id='tweet_feed'></div>
+    <script type='text/javascript'>
+      $(function() {
+        $('#tweet_feed').tweet({
+          query:"#df",
+          loading_text: "Loading Tweets...",
+          count: 50,
+          refresh_interval: 30,
+          avatar_size: 48
+        });
+      });
+    </script>
+  <% end %>
+
+  <%= render "layouts/footer" %>
+<% end %>

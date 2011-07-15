@@ -1,12 +1,13 @@
 <%= page "data-theme" => "e" do %>
-  <%= header "data-theme" => "a" do %>
+  <%= header "data-theme" => "e" do %>
     <%= link_to "Back", '#', 'data-rel' => 'back', 'data-icon' => 'back' %>
     <h1>Submit a Party</h1>
   <% end %>
   <%= content do %>
     <%= simple_form_for Event.new do |f| %>
       <%= f.input :name, label: "Name of Party", placeholder: "MyCorp Dreamforce Dragout" %>
-      <%= f.input :start_time, label: "Start Time" %>
+      <div class='date_selector'><%= f.input :start_time, label: "Start Time" %></div>
+      <div class='date_selector'><%= f.input :end_time, label: "End Time" %></div>      
     <% end %>
   <% end %>
 <% end %>
