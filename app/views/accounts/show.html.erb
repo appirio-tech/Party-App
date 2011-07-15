@@ -1,0 +1,9 @@
+<%= page do %>
+  <%= header do %>
+    <%= link_to "Back", "#", "data-rel" => 'back', "data-icon" => 'back' %>
+    <h1>My Profile</h1>
+  <% end %>
+  <%= content do %>
+    <%= image_tag current_user.image %>
+  <% end %>
+<% end %>

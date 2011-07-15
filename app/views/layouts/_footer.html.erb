@@ -1,0 +1,12 @@
+  <footer data-role='footer' data-position='fixed'>
+    <nav data-role='navbar'><ul>
+      <li><%= link_to "Events", events_path, 'data-icon' => 'grid', 'class' => ('ui-btn-active' if current_page?(events_path)) %></li>
+      <li><%= link_to "Tweets", '/tweets/', 'data-icon' => 'arrow-u' %></li>
+      <% if signed_in? %>
+        <li><%= link_to "My Profile", '/account', 'data-icon' => 'home' %></li>
+        <li><%= link_to "Sign Out", '/sign_out/', 'data-icon' => 'delete', 'rel' => 'external' %></li>        
+      <% else %>
+        <li><%= link_to "Connect", '/sign_in/', 'data-icon' => 'star', 'data-rel' => 'dialog' %></li>
+      <% end %>
+    </ul></nav>
+  </footer>

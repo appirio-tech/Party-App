@@ -1,0 +1,15 @@
+<%= page do %>
+  <%= header do %>
+    <h1>Dreamforce Parties</h1>
+  <% end %>
+
+  <%= content do %>
+    <ul data-role='listview'>
+      <li data-role='divider'>Sunday, August 28</li>
+      <li><%= link_to "Some Event", "/something" %></li>
+      <li data-theme='e' data-icon='plus'><%= link_to "Party not listed? Add it here!", new_event_path, "data-icon" => "plus" %></li>
+    </ul>
+  <% end %>
+
+  <%= render "layouts/footer" %>
+<% end %>
