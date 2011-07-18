@@ -28,6 +28,10 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 1.1.rc1'
 end
 
+group :production do
+  gem 'therubyracer-heroku'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
