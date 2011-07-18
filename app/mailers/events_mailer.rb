@@ -1,5 +1,5 @@
 class EventsMailer < ActionMailer::Base
-  default from: "no-reply@partay.com"
+  default from: "no-reply@socialspring.com"
 
   def approval(event)
     @event = event
