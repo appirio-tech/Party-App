@@ -13,14 +13,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "/images/default/" + ["image", version_name].compact.join('_') + '.png'
+    "/images/defaults/" + ["image", version_name].compact.join('_') + '.png'
   end
 
   version(:icon){ process resize_to_fill: [16, 16] }
   version(:small){ process resize_to_fill: [24, 24] }
   version(:medium){ process resize_to_fill: [48, 48] }
   version(:large){ process resize_to_fill: [73, 73] }
-
+  version(:thumb){ process resize_to_fill: [80, 80] }
   def extension_white_list
     %w(jpg jpeg gif png)
   end

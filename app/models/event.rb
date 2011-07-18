@@ -6,7 +6,11 @@ class Event < ActiveRecord::Base
   validates_presence_of :organizer, :name, :location_name, :start_time, :end_time
 
   def description_html
-    Maruku.new(description).html
+    Maruku.new(description).to_html.html_safe
+  end
+
+  def full_location
+    [location_name, address, address2, city, state, zipcode].reject{|s| s.blank?}.join(', ')
   end
 
   def natural_start_time; start_time end

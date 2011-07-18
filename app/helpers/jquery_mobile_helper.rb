@@ -10,4 +10,11 @@ module JqueryMobileHelper
   def content(options = {}, &block)
     content_tag :div, {"data-role" => "content"}.merge(options), &block
   end
+
+  def collapsible(title, options = {}, &block)
+    content_tag :section, {"data-role" => "collapsible"}.merge(options) do
+      content_tag(:h1, title) + 
+      capture(&block)
+    end
+  end
 end
