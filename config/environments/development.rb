@@ -24,4 +24,13 @@ Partay::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :address => "localhost",
+    :port => 1025,
+    :domain => "passport.dev"
+  }  
+
+  config.action_mailer.default_url_options = { :host => "partay.dev" }  
 end

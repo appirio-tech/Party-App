@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :attendances
+  has_many :events, through: :attendances
+
   def self.from_auth(auth)
     user = User.send("find_by_#{auth['provider']}_id", auth['uid'])
     

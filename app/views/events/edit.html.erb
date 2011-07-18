@@ -1,9 +1,10 @@
 <%= page "data-theme" => "a" do %>
   <%= header "data-theme" => "a" do %>
-    <%= link_to "Events", '/', 'data-icon' => 'back', 'data-direction' => 'reverse' %>
-    <h1>Add an Event</h1>
+    <%= link_to "View", '#', 'data-rel' => 'back' %>
+    <h1>Edit Event</h1>
   <% end %>
   <%= content do %>
     <%= render "form" %>
   <% end %>
 <% end %>
+

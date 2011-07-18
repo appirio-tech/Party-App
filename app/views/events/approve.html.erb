@@ -1,0 +1,11 @@
+<%= page do %>
+  <%= header do %>
+    <h1>Approved!</h1>
+  <% end %>
+
+  <%= content do %>
+    <p>The event <b><%= @event.name %> has been approved.</p>
+  
+      <%= link_to "View Event", event_path(@event), 'data-rel' => 'external', 'data-role' => 'button' %>
+  <% end %>
+<% end %>

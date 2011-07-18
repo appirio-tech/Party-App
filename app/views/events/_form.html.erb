@@ -1,0 +1,18 @@
+    <%= simple_form_for @event, html: {'data-ajax' => 'false'} do |f| %>
+      <%= f.input :name, label: "Name of Event", placeholder: "Intridea Happy Hour" %>
+      <%= f.input :natural_start_time, label: "Start Time", as: "string", placeholder: "e.g. August 5 at 7:30pm" %>
+      <%= f.input :natural_end_time, label: "End Time", as: "string", placeholder: "e.g. August 5 at 9:00pm" %>      
+      
+      <%= f.input :location_name, placeholder: "e.g. The Riot Room" %>
+      <%= f.input :address %>
+      <%= f.input :address2, label: "Address (cont'd)" %>
+      <%= f.input :city %>
+      <%= f.input :state %>
+      <%= f.input :zipcode %>
+
+      <%= f.input :description, as: :text %>
+
+      <%= f.input :image, as: 'file', hint: 'Will be cropped to fit a square ratio.' %>
+
+      <%= f.submit "Save Event Info", 'data-icon' => 'plus', 'data-theme' => 'b' %>
+    <% end %>

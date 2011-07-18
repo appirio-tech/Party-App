@@ -2,26 +2,41 @@
   <%= header do %>
     <%= link_to "Events", "/", "data-icon" => 'back' %>
     <h1>View Event</h1>
-    <%= link_to "RSVP", event_attendances_path(@event), method: :post, 'data-icon' => 'plus', 'data-theme' => 'a' if signed_in? %>
+    <%= link_to "RSVP", attendance_event_path(@event), method: :post, 'rel' => 'external','data-icon' => 'plus', 'data-theme' => 'a' if signed_in? && @event.users.exclude?(current_user) %>
   <% end %>
 
   <%= content do %>
     <header class='callout_box'>
       <%= image_tag @event.image.url(:large) %>
       <h1><%= @event.name %></h1>
-      <span class='time'><%= @event.start_time %></span>
+      <span class='time'><%= @event.start_time.strftime("%B %e from %I:%M%P") %> to <%= @event.end_time.strftime("%I:%M%P") %></span>
       <span class='place'><%= @event.location_name %></span>
     </header>
-
+er
     <% if @event.description? %>
       <%= collapsible "Event Details", class: 'markup' do %>
         <%= @event.description_html %>
       <% end %>
     <% end %>
 
+    <% if @event.users.any? %>
+      <%= collapsible "Attending", class: 'icon_list' do %>
+        <% @event.users.each do |user| %><%= image_tag(user.image, alt: user.name, title: user.name) %><% end %>
+      <% end %>
+    <% end %>
+
     <ul data-role='listview' data-inset='true'>
-      <li><%= link_to "I'm coming! (RSVP)", event_attendances_path(@event), method: :post if signed_in? %></li>      
+      <% if signed_in? %>
+        <% if @event.users.exclude?(current_user) %>
+          <li data-icon='plus'><%= link_to "I'm coming! (RSVP)", attendance_event_path(@event), method: :post, rel: 'external' %></li>
+        <% else %>
+          <li data-icon='delete'><%= link_to "Undo RSVP", attendance_event_path(@event), method: :delete, rel: 'external' %></li>
+        <% end %>
+      <% end %>
       <li><%= link_to "View on Map", "http://maps.google.com?q=#{CGI.escape(@event.full_location)}"%></li>
+      <% if @event.organizer == current_user %>
+        <li data-icon='gear'><%= link_to "Edit Event Details", edit_event_path(@event), 'data-icon' => 'gear' %></li>
+      <% end %>
     </ul>
   <% end %>
 <% end %>

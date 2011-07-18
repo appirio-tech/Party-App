@@ -5,15 +5,17 @@
 
   <%= content do %>
     <ul data-role='listview'>
-      <li data-role='divider'>Sunday, August 28</li>
-      <% Event.all.each do |event| %>
-        <li>
-          <%= link_to event_path(event) do %>
-            <%= image_tag event.image.url(:thumb) %>
-            <h2><%= event.name %></h2>
-            <p><%= event.location_name %></p>
-          <% end %>
-        </li>
+      <% @events.group_by(&:date).each do |day, events| %>
+        <li data-role='divider' data-theme='a'><%= day.strftime("%A, %B %d") %></li>
+        <% events.each do |event| %>
+          <li>
+            <%= link_to event_path(event) do %>
+              <%= image_tag event.image.url(:thumb) %>
+              <h2><%= event.name %></h2>
+              <p><%= event.location_name %></p>
+            <% end %>
+          </li>
+        <% end %>
       <% end %>
       <li data-theme='e' data-icon='plus'><%= link_to "Party not listed? Add it here!", new_event_path, "data-icon" => "plus" %></li>
     </ul>
