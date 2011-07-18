@@ -12,7 +12,7 @@
       <span class='time'><%= @event.start_time.strftime("%B %e from %I:%M%P") %> to <%= @event.end_time.strftime("%I:%M%P") %></span>
       <span class='place'><%= @event.location_name %></span>
     </header>
-er
+
     <% if @event.description? %>
       <%= collapsible "Event Details", class: 'markup' do %>
         <%= @event.description_html %>
