@@ -1,0 +1,27 @@
+<%= page do %>
+  <%= header do %>
+    <%= link_to "Events", "/", "data-icon" => 'back' %>
+    <h1>View Event</h1>
+    <%= link_to "RSVP", event_attendances_path(@event), method: :post, 'data-icon' => 'plus', 'data-theme' => 'a' if signed_in? %>
+  <% end %>
+
+  <%= content do %>
+    <header class='callout_box'>
+      <%= image_tag @event.image.url(:large) %>
+      <h1><%= @event.name %></h1>
+      <span class='time'><%= @event.start_time %></span>
+      <span class='place'><%= @event.location_name %></span>
+    </header>
+
+    <% if @event.description? %>
+      <%= collapsible "Event Details", class: 'markup' do %>
+        <%= @event.description_html %>
+      <% end %>
+    <% end %>
+
+    <ul data-role='listview' data-inset='true'>
+      <li><%= link_to "I'm coming! (RSVP)", event_attendances_path(@event), method: :post if signed_in? %></li>      
+      <li><%= link_to "View on Map", "http://maps.google.com?q=#{CGI.escape(@event.full_location)}"%></li>
+    </ul>
+  <% end %>
+<% end %>

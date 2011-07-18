@@ -17,6 +17,11 @@ gem 'jquery-rails'
 gem 'oa-oauth'
 gem 'simple_form'
 
+gem 'rmagick'
+gem 'carrierwave'
+gem 'chronic'
+gem 'maruku'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl', '~> 2.0.0.rc3'

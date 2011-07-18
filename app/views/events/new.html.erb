@@ -1,13 +1,26 @@
-<%= page "data-theme" => "e" do %>
-  <%= header "data-theme" => "e" do %>
-    <%= link_to "Back", '#', 'data-rel' => 'back', 'data-icon' => 'back' %>
-    <h1>Submit a Party</h1>
+<%= page "data-theme" => "a" do %>
+  <%= header "data-theme" => "a" do %>
+    <%= link_to "Events", '/', 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <h1>Add an Event</h1>
   <% end %>
   <%= content do %>
     <%= simple_form_for Event.new do |f| %>
-      <%= f.input :name, label: "Name of Party", placeholder: "MyCorp Dreamforce Dragout" %>
-      <div class='date_selector'><%= f.input :start_time, label: "Start Time" %></div>
-      <div class='date_selector'><%= f.input :end_time, label: "End Time" %></div>      
+      <%= f.input :name, label: "Name of Event", placeholder: "Intridea Happy Hour" %>
+      <%= f.input :natural_start_time, label: "Start Time", as: "string", placeholder: "e.g. August 5 at 7:30pm" %>
+      <%= f.input :natural_end_time, label: "End Time", as: "string", placeholder: "e.g. August 5 at 9:00pm" %>      
+      
+      <%= f.input :location_name, placeholder: "e.g. The Riot Room" %>
+      <%= f.input :address %>
+      <%= f.input :address2, label: "Address (cont'd)" %>
+      <%= f.input :city %>
+      <%= f.input :state %>
+      <%= f.input :zipcode %>
+
+      <%= f.input :description, as: :text %>
+
+      <%= f.input :image, as: 'file', hint: 'Will be cropped to fit a square ratio.' %>
+
+      <%= f.submit "Submit Event Info", 'data-icon' => 'plus', 'data-theme' => 'b' %>
     <% end %>
   <% end %>
 <% end %>

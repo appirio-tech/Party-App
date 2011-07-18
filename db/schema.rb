@@ -21,10 +21,13 @@ ActiveRecord::Schema.define(:version => 20110706222534) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
+    t.float    "lat"
+    t.float    "lng"
     t.boolean  "approved"
     t.datetime "start_time"
     t.datetime "end_time"
     t.text     "description"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

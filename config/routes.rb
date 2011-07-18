@@ -1,6 +1,8 @@
 Partay::Application.routes.draw do
   root to: 'events#index'
-  resources :events
+  resources :events do
+    resources :attendances
+  end
   resource :account
 
   match '/auth/:provider/callback', to: 'sessions#create'
