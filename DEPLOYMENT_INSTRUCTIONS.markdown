@@ -5,7 +5,8 @@ Party app up and running on Heroku.
 
 1. In the root of the project, run `heroku create appname --stack cedar`. 
    This should add a git remote called "heroku" that will point to the 
-   Heroku deployment endpoint.
+   Heroku deployment endpoint. "appname" should be whatever you want the
+   app to be called.
 2. Get your application deployed with `git push heroku master`
 3. Set up **environment variables** as described below.
 3. Migrate the database: `heroku run rake db:migrate`
