@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Partay</title>
+  <title><%= current_conference.try(:name) || "Party Time" %></title>
   <meta content="width=device-width,minimum-scale=1,maximum-scale=1" name="viewport"> 
   <link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
   <%= stylesheet_link_tag    "application" %>

@@ -1,4 +1,5 @@
 class ConferencesController < ApplicationController
+  skip_before_filter :conference_required
   before_filter :admin_required
   before_filter :set_conference, only: [:edit, :update, :destroy, :show]
 

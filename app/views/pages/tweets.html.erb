@@ -7,7 +7,7 @@
     <script type='text/javascript'>
       $(function() {
         $('#tweet_feed').tweet({
-          query:"<%= ENV['TWITTER_QUERY'] || 'party' %>",
+          query:"<%= current_conference.hashtag || ENV['TWITTER_QUERY'] || 'party' %>",
           loading_text: "Loading Tweets...",
           count: 50,
           refresh_interval: 30,

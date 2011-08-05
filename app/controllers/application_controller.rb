@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :conference_required
   protect_from_forgery
   layout 'application'
 
@@ -22,5 +23,10 @@ class ApplicationController < ActionController::Base
 
   def current_conference
     @conference ||= Conference.from_request(request)
+  end
+  helper_method :current_conference
+
+  def conference_required
+    render text: '404 Not Found', status: 404 unless current_conference
   end
 end

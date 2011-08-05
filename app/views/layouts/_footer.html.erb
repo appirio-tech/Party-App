@@ -3,7 +3,7 @@
       <li><%= link_to "Events", events_path, 'data-icon' => 'grid', 'class' => ('ui-btn-active' if current_page?(events_path) || current_page?(root_path)) %></li>
       <li><%= link_to "Tweets", '/tweets', 'data-icon' => 'arrow-u', 'rel' => 'external', 'class' => ('ui-btn-active' if current_page?(page_path('tweets'))) %></li>
       <% if signed_in? %>
-        <li><%= link_to "My Profile", '/account', 'data-icon' => 'home', 'class' => ('ui-btn-active' if current_page?(account_path)) %></li>
+        <!--<li><%= link_to "My Profile", '/account', 'data-icon' => 'home', 'class' => ('ui-btn-active' if current_page?(account_path)) %></li>-->
         <li><%= link_to "Sign Out", '/sign_out', 'data-icon' => 'delete', 'rel' => 'external' %></li>        
       <% else %>
         <li><%= link_to "Connect", '/sign_in', 'data-icon' => 'star', 'data-rel' => 'dialog' %></li>

@@ -11,6 +11,9 @@
       <li><b>Domain:</b> <code><%= @conference.domain %></code></li>
     </ul>
 
-    <%= link_to 'Delete This Conference', conference_path(@conference), method: 'delete', 'data-theme' => 'a', 'data-role' => 'button', confirm: 'Are you sure?' %>
+    <ul data-role='listview' data-inset='true'>
+      <li><%= link_to 'Visit This Conference', "http://#{@conference.domain}", 'rel'  => 'external'%></li>      
+      <li data-icon='delete'><%= link_to 'Delete This Conference', conference_path(@conference), method: 'delete', confirm: 'Are you sure?' %></li>
+    </ul>
   <% end %>
 <% end %>
