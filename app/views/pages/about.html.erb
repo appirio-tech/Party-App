@@ -1,0 +1,17 @@
+<%= page do %>
+  <%= header do %>
+    <%= link_to "Back", "/", "data-icon" => 'back', 'data-direction' => 'reverse' %>    
+    <h1>About This App</h1>
+  <% end %>
+  <%= content do %>
+    <div class='ui-grid-a' id='logo_box'>
+      <div class='ui-block-a' align='center'><%= link_to image_tag('/images/logo_cloudspokes.png'), 'http://cloudspokes.com' %></div>
+      <div class='ui-block-b' align='center'><%= link_to image_tag('/images/logo_intridea.png'), 'http://intridea.com' %></div>
+    </div>
+
+    <p>This application was created as a contest entry for a
+    <%= link_to "CloudSpokes", "http://cloudspokes.com" %> programming competition.
+    It was developed by Michael Bleigh of <%= link_to "Intridea", 'http://intridea.com' %>
+    utilizing Ruby on Rails, jQuery Mobile, and Heroku.</p>
+  <% end %>
+<% end %>
