@@ -1,0 +1,17 @@
+<%= page do %>
+  <%= header do %>
+    <h1>Conferences</h1>
+  <% end %>
+
+  <%= content do %>
+    <ul data-role='listview'>
+      <% @conferences.each do |conference| %>
+          <li>
+            <%= link_to conference.name, conference_path(conference) %>
+          </li>
+      <% end %>
+      <li data-theme='e' data-icon='plus'><%= link_to "Conference not listed? Add it here!", new_conference_path, "data-icon" => "plus" %></li>
+    </ul>
+  <% end %>
+<% end %>
+

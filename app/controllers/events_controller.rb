@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_filter :set_event, only: [:show, :edit, :update, :approve]
 
   def index
-    @events = Event.approved.order("start_time ASC, end_time ASC, name ASC")
+    @events = current_conference.events.approved.order("start_time ASC, end_time ASC, name ASC")
   end
 
   def new
@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(params[:event])
+    @event.conference = current_conference
     @event.organizer = current_user
 
     if @event.save

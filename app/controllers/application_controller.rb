@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
       redirect_to '/sign_in'
     end
   end
+
+  def current_conference
+    @conference ||= Conference.from_request(request)
+  end
 end

@@ -1,6 +1,6 @@
 <%= page do %>
   <%= header do %>
-    <%= link_to "Events", "/", "data-icon" => 'back' %>
+    <%= link_to "Events", "/", "data-icon" => 'back', 'data-direction' => 'reverse' %>
     <h1>View Event</h1>
     <%= link_to "RSVP", attendance_event_path(@event), method: :post, 'rel' => 'external','data-icon' => 'plus', 'data-theme' => 'a' if signed_in? && @event.users.exclude?(current_user) %>
   <% end %>

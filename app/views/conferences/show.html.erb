@@ -1,0 +1,16 @@
+<%= page do %>
+  <%= header do %>
+    <%= link_to "Back", conferences_path, 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <h1>View Conference</h1>
+    <%= link_to "Edit", edit_conference_path(@conference), 'data-rel' => 'dialog' %>
+  <% end %>
+  <%= content do %>
+    <ul>
+      <li><b>Name:</b> <%= @conference.name %></li>
+      <li><b>Hashtag:</b> <%= @conference.hashtag %></li>
+      <li><b>Domain:</b> <code><%= @conference.domain %></code></li>
+    </ul>
+
+    <%= link_to 'Delete This Conference', conference_path(@conference), method: 'delete', 'data-theme' => 'a', 'data-role' => 'button', confirm: 'Are you sure?' %>
+  <% end %>
+<% end %>

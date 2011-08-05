@@ -1,0 +1,7 @@
+<%= simple_form_for @conference do |f| %>
+  <%= f.input :name %>
+  <%= f.input :hashtag, placeholder: 'e.g. #df11party' %>
+  <%= f.input :domain, placeholder: 'e.g. m.dreamforceparty.com' %>
+
+  <%= f.submit 'Save Conference Info', 'data-theme' => 'b' %>
+<% end %>

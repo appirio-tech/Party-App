@@ -1,6 +1,9 @@
 require 'digest/md5'
 
 class Event < ActiveRecord::Base
+  attr_protected :organizer_id, :approved, :conference_id
+
+  belongs_to :conference
   belongs_to :organizer, class_name: 'User'
 
   mount_uploader :image, ImageUploader

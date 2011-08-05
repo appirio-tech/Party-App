@@ -1,0 +1,10 @@
+<%= page "data-theme" => "a" do %>
+  <%= header "data-theme" => "a" do %>
+    <%= link_to "Conferences", conferences_path, 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <h1>Add a Conference</h1>
+  <% end %>
+  <%= content do %>
+    <%= render "form" %>
+  <% end %>
+<% end %>
+
