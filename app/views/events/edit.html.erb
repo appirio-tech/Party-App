@@ -1,6 +1,6 @@
 <%= page "data-theme" => "a" do %>
   <%= header "data-theme" => "a" do %>
-    <%= link_to "View", '#', 'data-rel' => 'back' %>
+    <%= link_to "View", event_path(@event), 'data-rel' => 'back', 'data-icon' => 'back' %>
     <h1>Edit Event</h1>
   <% end %>
   <%= content do %>

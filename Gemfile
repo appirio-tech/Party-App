@@ -18,6 +18,7 @@ gem 'oa-oauth'
 gem 'simple_form'
 
 gem 'rmagick'
+gem 'fog'
 gem 'carrierwave'
 gem 'chronic'
 gem 'maruku'
