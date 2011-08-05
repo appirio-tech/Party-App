@@ -40,12 +40,12 @@ class Event < ActiveRecord::Base
 
   def natural_start_time; start_time end
   def natural_start_time=(time)
-    self.start_time = Chronic.parse(time)
+    self.start_time = (Chronic.parse(time) || Time.parse(time) rescue nil)
   end
   
   def natural_end_time; end_time end
   def natural_end_time=(time)
-    self.end_time = Chronic.parse(time)
+    self.end_time = (Chronic.parse(time) || Time.parse(time) rescue nil)
   end
 
   protected 

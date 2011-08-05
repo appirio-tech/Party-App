@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_filter :login_required, only: [:new, :create]
-  before_filter :set_event, only: [:show, :edit, :update, :approve]
+  before_filter :set_event, only: [:show, :edit, :update, :approve, :calendar]
 
   def index
     @events = current_conference.events.approved.order("start_time ASC, end_time ASC, name ASC")
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update_attributes(params[:event])
+    if @event.update_attributes!(params[:event])
       redirect_to event_path(@event), notice: 'Updated event successfully.'
     else
       flash.now[:alert] = "Problem updating event."
@@ -39,6 +39,24 @@ class EventsController < ApplicationController
     unless @event.approved? || @event.organizer == current_user
       raise ActiveRecord::RecordNotFound
     end
+  end
+
+  def calendar
+    cal = Icalendar::Calendar.new
+    
+    event = Icalendar::Event.new
+
+    event.summary = @event.name
+    event.uid = [request.host, @event.id].join('@')    
+    event.start = @event.start_time.to_datetime
+    event.end = @event.end_time.to_datetime
+    event.location = @event.full_location
+    event.url = event_url(@event)
+    event.description = @event.description if @event.description?
+
+    cal.add_event(event)
+
+    render text: cal.to_ical, content_type: 'text/calendar; charset=UTF-8'
   end
 
   def approve

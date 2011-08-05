@@ -68,6 +68,7 @@ GEM
     formatador (0.2.0)
     hike (1.1.0)
     i18n (0.6.0)
+    icalendar (1.1.6)
     jquery-rails (1.0.12)
       railties (~> 3.0)
       thor (~> 0.14)
@@ -172,6 +173,7 @@ DEPENDENCIES
   factory_girl (~> 2.0.0.rc3)
   factory_girl_rails (~> 1.1.rc1)
   fog
+  icalendar
   jquery-rails
   maruku
   oa-oauth

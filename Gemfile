@@ -22,6 +22,7 @@ gem 'fog'
 gem 'carrierwave'
 gem 'chronic'
 gem 'maruku'
+gem 'icalendar'
 
 group :development, :test do
   gem 'rspec-rails'

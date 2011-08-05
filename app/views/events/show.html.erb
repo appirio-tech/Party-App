@@ -37,6 +37,7 @@
       <% if @event.organizer == current_user %>
         <li data-icon='gear'><%= link_to "Edit Event Details", edit_event_path(@event), 'data-icon' => 'gear' %></li>
       <% end %>
+      <li data-icon='plus'><%= link_to 'Add to Calendar', calendar_event_path(@event), 'rel' => 'external' %></li>
     </ul>
   <% end %>
 <% end %>
