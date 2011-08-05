@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.from_auth(auth)
     session[:user_id] = @user.id
-    redirect_to session.delete(:return_to) || root_path
+    redirect_to session.delete(:return_to) || root_url
   end
 
   def destroy

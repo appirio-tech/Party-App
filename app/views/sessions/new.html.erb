@@ -1,12 +1,11 @@
 <%= page 'data-theme' => 'a' do %>
   <%= header 'data-theme' => 'a' do %>
-    <h1>Sign in to Partay!</h1>
+    <h1>Sign in to <%= site_title %>!</h1>
   <% end %>
   <%= content 'data-theme' => 'a' do %>
-    <%= link_to '/auth/twitter', rel: 'external', id: 'twitter_sign_in' do %>
-      <%= image_tag('/images/sign_in_twitter.png', alt: 'Sign in with Twitter') %>
-      Sign in with Twitter
-    <% end %>
-    <%#= link_to image_tag('/images/sign_in_facebook.png', alt: 'Sign in with Facebook'), '/auth/facebook', rel: 'external' %>
+    <ul data-role='listview' data-theme='a'>
+      <li><%= link_to "Sign in with Twitter", '/auth/twitter', rel: 'external' %></li>
+      <li><%= link_to "Sign in with Force.com", '/auth/salesforce', rel: 'external' %></li>
+    </ul>
   <% end %>
 <% end %>

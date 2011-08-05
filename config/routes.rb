@@ -1,4 +1,6 @@
 Partay::Application.routes.draw do
+  match '/auth/:provider/callback', to: 'sessions#create'
+
   constraints Conference do
     root to: 'events#index'
     resources :events do
@@ -11,7 +13,6 @@ Partay::Application.routes.draw do
     resource :account
     resources :users
 
-    match '/auth/:provider/callback', to: 'sessions#create'
     match '/sign_in', to: 'sessions#new', as: 'sign_in'
     match '/sign_out', to: 'sessions#destroy', as: 'sign_out'
 
