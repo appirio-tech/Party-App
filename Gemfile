@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'arel', '2.1.4'
 gem 'rails', '3.1.0.rc5'
 
 # Bundle edge Rails instead:
