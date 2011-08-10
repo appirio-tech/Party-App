@@ -23,5 +23,11 @@ Partay::Application.routes.draw do
   constraints ->(req){ !Conference.matches?(req) && req.host == ENV['ADMIN_DOMAIN'] } do
     root to: 'conferences#index'
     resources :conferences
+
+    resources :events do
+      member do
+        get :approve
+      end
+    end
   end
 end
