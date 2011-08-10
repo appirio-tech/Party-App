@@ -1,12 +1,12 @@
 class EventsMailer < ActionMailer::Base
-  default from: "no-reply@socialspring.com"
+  default from: "dave@cloudspokes.com"
 
   def approval(event)
     @event = event
     @user = event.organizer
 
     mail(
-      to: ENV["ADMIN_EMAIL"] || "michael@intridea.com",
+      to: ENV["ADMIN_EMAIL"] || "dave@cloudspokes.com",
       subject: "Event Approval Notice - #{@event.name}"
     )
   end
