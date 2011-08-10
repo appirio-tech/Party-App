@@ -26,5 +26,5 @@ the content below and approve it if everything looks good!</p>
 <p>Does it look good to you? If so, click the link below to approve it.
 It will not be visible to the public until it has been approved.</p>
 
-<p><%= link_to "Approve this Event", approve_event_url(@event, code: @event.code), style: 'background: #381; color: white; padding: 15px; display: block; text-align: center; font-weight: bold; text-decoration: none; font-size: 20px' %></p>
+<p><%= link_to "Approve this Event", approve_event_url(@event, code: @event.code, host: @event.conference.domain), style: 'background: #381; color: white; padding: 15px; display: block; text-align: center; font-weight: bold; text-decoration: none; font-size: 20px' %></p>
 </div>

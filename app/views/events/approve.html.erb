@@ -6,6 +6,6 @@
   <%= content do %>
     <p>The event <b><%= @event.name %> has been approved.</p>
   
-      <%= link_to "View Event", event_path(@event), 'data-rel' => 'external', 'data-role' => 'button' %>
+      <%= link_to "View Event", event_path(@event), 'rel' => 'external', 'data-role' => 'button' %>
   <% end %>
 <% end %>
