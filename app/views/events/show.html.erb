@@ -24,7 +24,7 @@
         <% @event.users.each do |user| %>
         	<% if user.twitter_id? %>
      
-	        	<%= link_to url_for("http://www.example.com") do %>
+	        	<%= link_to url_for("http://www.twitter.com/" + user.twitter_id) do %>
 	            	<%= image_tag(user.image, alt: user.name, title: user.name) %>
 	        	<% end %>
         	<% else %>
