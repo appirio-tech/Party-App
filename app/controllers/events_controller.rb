@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_filter :login_required, only: [:new, :create]
   before_filter :set_event, only: [:show, :edit, :update, :approve, :calendar]
+  before_filter :admin_required, only: [:edit, :update, :destroy], unless: :organizer_access
 
   def index
     @events = current_conference.events.approved.order("start_time ASC, end_time ASC, name ASC")
@@ -24,7 +25,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    redirect_to event_path(@event), alert: "Only the organizer can edit events." unless @event.organizer == current_user
   end
 
   def update
@@ -70,5 +70,9 @@ class EventsController < ApplicationController
 
   def set_event
     @event = Event.includes(:users).find_by_id!(params[:id])
+  end
+
+  def organizer_access
+    @event && @event.organizer == current_user
   end
 end

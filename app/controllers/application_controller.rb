@@ -29,4 +29,10 @@ class ApplicationController < ActionController::Base
   def conference_required
     render text: '404 Not Found', status: 404 unless current_conference
   end
+
+  def admin_required
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV['ADMIN_USER'] && password == ENV['ADMIN_PASSWORD']
+    end
+  end
 end
