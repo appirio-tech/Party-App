@@ -1,0 +1,16 @@
+<%= page 'data-theme' => 'b' do %>
+  <%= header do %>
+    <%= link_to "Back", event_path(@event), 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <h1>RSVP Received!</h1>
+  <% end %>
+  <%= content do %>
+    <p>Congratulations! You are marked to attend <b><%= @event.name %></b>. Want to let
+    the world know where you'll be? Click the "Share on Twitter" button below. You can also
+    add the event to your calendar to make sure you don't miss it!</p>
+
+    <ul data-role='listview' data-inset='true'>
+      <li><%= link_to "Share on Twitter", "http://twitter.com/home?status=#{CGI.escape(rsvp_status(@event))}" %></li>
+      <li data-icon='plus'><%= link_to 'Add to Calendar', calendar_event_path(@event), 'rel' => 'external' %></li>
+    </ul>
+  <% end %>
+<% end %>

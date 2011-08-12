@@ -7,6 +7,7 @@ Partay::Application.routes.draw do
       member do
         get :approve
         post :attendance, to: 'attendances#create'
+        get :attendance, to: 'attendances#show'
         delete :attendance, to: 'attendances#destroy'
         get :calendar
       end

@@ -8,7 +8,7 @@ class AttendancesController < ApplicationController
       flash[:alert] = "Couldn't RSVP"
     end
 
-    redirect_to event_path(@event)
+    redirect_to attendance_event_path(@event)
   end
 
   def destroy
