@@ -24,6 +24,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    redirect_to event_path(@event), alert: "Only the organizer can edit events." unless @event.organizer == current_user
   end
 
   def update
