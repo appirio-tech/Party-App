@@ -4,14 +4,14 @@
     <h1>About This App</h1>
   <% end %>
   <%= content do %>
-    <div class='ui-grid-a' id='logo_box'>
+    <div class='ui-grid-b' id='logo_box'>
       <div class='ui-block-a' align='center'><%= link_to image_tag('http://www.appirio.com/i2/images/Appirio_logo.gif'), 'http://appiro.com' %></div>
       <div class='ui-block-b' align='center'><%= link_to image_tag('/images/logo_cloudspokes.png'), 'http://cloudspokes.com' %></div>
       <div class='ui-block-c' align='center'><%= link_to image_tag('/images/logo_intridea.png'), 'http://intridea.com' %></div>
     </div>
 
-    <p>This application was created as a contest entry for a
-    <%= link_to "CloudSpokes", "http://cloudspokes.com" %> programming competition.
+    <p>This application was created as a contest entry for a <a href="http://www.cloudspokes.com">CloudSpokes</a> programming competition, 
+    sponsored by <a href="http://www.appirio.com">Appirio<a/>
     It was developed by Michael Bleigh of <%= link_to "Intridea", 'http://intridea.com' %>
     utilizing Ruby on Rails, jQuery Mobile, and Heroku.</p>
   <% end %>
