@@ -27,12 +27,9 @@
 	        	<%= link_to url_for(twitterUrl) do %>
 	            	<%= image_tag(user.image, alt: user.name, title: user.name) %>
 	        	<% end %>
-        	<% else %>
-        		<%= image_tag(user.image, alt: user.name, title: user.name) %>
-        	<$ end>
+        	<% end %>
        	<% end %>
       <% end %>
-    <% end %>
     <% end %>
 
     <ul data-role='listview' data-inset='true'>
