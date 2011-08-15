@@ -22,12 +22,11 @@
     <% if @event.users.any? %>
       <%= collapsible "Attending", class: 'icon_list' do %>
         <% @event.users.each do |user| %>
-        	<% if user.twitter_id? %>
-     		
+        		
 	        	<%= link_to url_for("http://www.twitter.com/" ) do %>
 	            	<%= image_tag(user.image, alt: user.name, title: user.name) %>
 	        	<% end %>
-        	<% end %>
+        	
        	<% end %>
       <% end %>
     <% end %>

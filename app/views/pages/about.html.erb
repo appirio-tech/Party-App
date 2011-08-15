@@ -5,14 +5,16 @@
   <% end %>
   <%= content do %>
     <div class='ui-grid-b' id='logo_box'>
-      <div class='ui-block-a' align='center'><%= link_to image_tag('http://www.appirio.com/i2/images/Appirio_logo.gif'), 'http://appiro.com' %></div>
+      <div class='ui-block-a' align='center'><%= link_to image_tag('/images/logo_appirio.png'), 'http://appiro.com' %></div>
       <div class='ui-block-b' align='center'><%= link_to image_tag('/images/logo_cloudspokes.png'), 'http://cloudspokes.com' %></div>
       <div class='ui-block-c' align='center'><%= link_to image_tag('/images/logo_intridea.png'), 'http://intridea.com' %></div>
     </div>
 
      <p>This application was sponsored by <a href="www.appirio.com">Appirio</a>, and created via a 
     <%= link_to "CloudSpokes", "http://cloudspokes.com" %> programming competition.
-    It was developed by Michael Bleigh of <%= link_to "Intridea", 'http://intridea.com' %>
+    It was developed by CloudSpokes member, <a herf="http://www.cloudspokes.com/profile.html?username=mbleigh">mbleigh</a>, aka Michael Bleigh of <%= link_to "Intridea", 'http://intridea.com' %>
     utilizing Ruby on Rails, jQuery Mobile, and Heroku. For more information, contact <a href="mailto:info@cloudspokes.com">info@cloudspokes.com</a></p>
+    
+    
   <% end %>
 <% end %>
