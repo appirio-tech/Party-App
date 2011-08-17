@@ -3,9 +3,9 @@ class AttendancesController < ApplicationController
 
   def create
     if @attendance = Attendance.create!(user: current_user, event: @event)
-      flash[:notice] = "Successfully RSVP'ed"
+      flash[:notice] = "Successful checkin"
     else
-      flash[:alert] = "Couldn't RSVP"
+      flash[:alert] = "Couldn't checkin"
     end
 
     redirect_to attendance_event_path(@event)
