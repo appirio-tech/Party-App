@@ -1,3 +1,4 @@
+.DS_Store
 .pow*
 .bundle
 db/*.sqlite3
