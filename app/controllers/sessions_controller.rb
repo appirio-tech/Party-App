@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def create
+    Rails.logger.info auth['extra'].inspect
     @user = User.from_auth(auth)
     session[:user_id] = @user.id
     redirect_to session.delete(:return_to) || root_url(protocol: 'http')
