@@ -2,7 +2,7 @@
   <%= header do %>
     <%= link_to "Events", "/", "data-icon" => 'back', 'data-direction' => 'reverse' %>
     <h1>View Event</h1>
-    <%= link_to "RSVP", attendance_event_path(@event), method: :post, 'rel' => 'external','data-icon' => 'plus', 'data-theme' => 'a' if signed_in? && @event.users.exclude?(current_user) %>
+    <%= link_to "RSVP", attendance_event_path(@event), method: :post, 'rel' => 'external','data-icon' => 'plus', 'data-theme' => 'a' if !signed_in? || @event.users.exclude?(current_user) %>
   <% end %>
 
   <%= content do %>
@@ -21,13 +21,11 @@
 
     <% if @event.users.any? %>
       <%= collapsible "Attending", class: 'icon_list' do %>
-        <% @event.users.each do |user| %>
-        		
-	        	<%= link_to url_for("http://www.twitter.com/" ) do %>
-	            	<%= image_tag(user.image, alt: user.name, title: user.name) %>
-	        	<% end %>
-        	
-       	<% end %>
+        <% @event.users.each do |user| %><% if user.image? && user.twitter_name? %>
+          <%= link_to url_for("http://www.twitter.com/#{user.twitter_name}") do %>
+            <%= image_tag(user.image, alt: user.name, title: user.name) %>
+          <% end %><% end %>
+        <% end %>
       <% end %>
     <% end %>
 

@@ -11,6 +11,10 @@ class AttendancesController < ApplicationController
     redirect_to attendance_event_path(@event)
   end
 
+  def show
+    redirect_to event_path(@event) unless @event.users.include?(current_user)
+  end
+
   def destroy
     @attendance = @event.attendances.find_by_user_id!(current_user.id)
     @attendance.destroy
@@ -20,6 +24,6 @@ class AttendancesController < ApplicationController
   protected
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.includes(:users).find(params[:id])
   end
 end
