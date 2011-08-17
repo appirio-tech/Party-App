@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
             u.facebook_token = auth['credentials']['token']
             u.email = auth['email']
             u.image = auth['user_info']['image']
+          when 'salesforce'
+            u.salesforce_id = auth['uid']
+            u.image = (auth['extra']['user_hash']['photos']['thumbnail'] rescue nil)
+            u.email = auth['user_info']['email']
         end
       end
     end
