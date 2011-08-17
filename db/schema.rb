@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817131509) do
+ActiveRecord::Schema.define(:version => 20110817183841) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "user_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20110817131509) do
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "salesforce_id"
+    t.string   "salesforce_id"
   end
 
   add_index "users", ["salesforce_id"], :name => "index_users_on_salesforce_id"
