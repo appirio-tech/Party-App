@@ -9,6 +9,7 @@ gem 'rails', '3.1.0.rc5'
 gem 'pg'
 
 # Asset template engines
+gem 'rack-ssl-enforcer'
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'

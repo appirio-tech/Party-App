@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_filter :admin_required, only: [:edit, :update, :destroy], unless: :organizer_access
 
   def index
-    @events = current_conference.events.approved.where(["start_time > ?", Time.now]).order("start_time ASC, end_time ASC, name ASC")
+    @events = current_conference.events.approved.where(["end_time > ?", Time.now - 8.hours]).order("start_time ASC, end_time ASC, name ASC")
   end
 
   def new

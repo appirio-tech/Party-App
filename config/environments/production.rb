@@ -1,6 +1,8 @@
 Partay::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  OmniAuth.config.full_host = "https://m.dreamforceparty.com"
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
